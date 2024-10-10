@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simple To-Do App</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        .todo-container {
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        .todo-container h1 {
+            margin-bottom: 20px;
+        }
+        .todo-container input {
+            padding: 10px;
+            width: 200px;
+            margin-right: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        .todo-container button {
+            padding: 10px 20px;
+            border: none;
+            background-color: #28a745;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .todo-container ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        .todo-container ul li {
+            padding: 10px;
+            background-color: #f9f9f9;
+            border-bottom: 1px solid #ccc;
+        }
+    </style>
+</head>
+<body>
+    <div class="todo-container">
+        <h1>To-Do List</h1>
+        <input type="text" id="todoInput" placeholder="Add new todo">
+        <button id="addButton">Add</button>
+        <ul id="todoList"></ul>
+    </div>
+
+    <script>
+        document.getElementById('addButton').addEventListener('click', function() {
+            const todoInput = document.getElementById('todoInput');
+            const todoList = document.getElementById('todoList');
+
+            if (todoInput.value.trim() !== '') {
+                const listItem = document.createElement('li');
+                listItem.textContent = todoInput.value;
+                todoList.appendChild(listItem);
+                todoInput.value = '';
+            } else {
+                alert('Please enter a todo item.');
+            }
+        });
+    </script>
+</body>
+</html>

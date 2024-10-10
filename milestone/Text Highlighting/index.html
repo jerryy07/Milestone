@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highlight Long Words</title>
+    <style>
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <p id="text">
+        This is an example paragraph to demonstrate highlighting of words that are longer than eight characters.
+    </p>
+
+    <script>
+        const paragraph = document.getElementById('text');
+        const words = paragraph.textContent.split(' ');
+
+        const highlightedWords = words.map(word => {
+            return word.length > 8 ? `<span class="highlight">${word}</span>` : word;
+        });
+
+        paragraph.innerHTML = highlightedWords.join(' ');
+    </script>
+</body>
+</html>
